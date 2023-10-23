@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import com.example.demo.entities.User;
 import com.example.demo.repositories.UserRepository;
 
+import jakarta.transaction.UserTransaction;
+
 @Service
 public class UserService {
 	@Autowired
@@ -21,8 +23,11 @@ public class UserService {
 	public User findById(Long id) {
 		Optional<User> obj = repository.findById(id);
 		
-		return  obj.get();
-		
+		return  obj.get();	
+	}
+	
+	public User insert(User obj) {
+		return repository.save(obj);
 	}
 	
 	
