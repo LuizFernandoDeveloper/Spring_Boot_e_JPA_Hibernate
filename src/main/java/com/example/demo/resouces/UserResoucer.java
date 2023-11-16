@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.example.demo.entities.User;
 import com.example.demo.services.UserService;
 
+
 @RestController
 @RequestMapping(value = "/users")
 public class UserResoucer {
@@ -46,7 +47,7 @@ public class UserResoucer {
 	}
 	
 	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<Void> delete(@PathVariable Long id){
+	public ResponseEntity<Void> delete(@PathVariable Long id) {
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}
